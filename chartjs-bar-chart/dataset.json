@@ -1,0 +1,1 @@
+{"title":"Iris Species","subtitle":"Average petal width and length","length":[{"species":"setosa","mean":1.4620000000000002},{"species":"versicolor","mean":4.26},{"species":"virginica","mean":5.552}],"width":[{"species":"setosa","mean":0.2459999999999999},{"species":"versicolor","mean":1.3259999999999998},{"species":"virginica","mean":2.026}]}

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body class="container">
+
+    <h1 class="text-center">Iris Petal Length by Species</h1>
+    <p class="text-center">Sample data cleaned and simplified for chart</p>
+
+    <canvas id="chart" class="container-fluid"></canvas>
+
+    <script>
+
+        const canvas = document.getElementById('chart');
+
+        fetch('./dataset.json', {mode: "cors"})
+            .then(res=>res.json())
+            .then(data=>{
+                setupChart(data)
+            })
+
+        function setupChart(data){
+
+
+            const config = {
+                type: 'bar',
+                data: {
+                    datasets: [
+                    {
+                        label: "width",
+                        data: data.width,
+                        parsing: {
+                            xAxisKey: 'species',
+                            yAxisKey: 'mean'
+                        },
+                    },
+                    {
+                        label: "length",
+                        data: data.length,
+                        parsing: {
+                            xAxisKey: 'species',
+                            yAxisKey: 'mean'
+                        },
+                    }
+                    ]
+                },
+                options: {
+                    plugins: {
+                        legend: {
+                            display: true
+                        }
+                    }
+                }
+                
+    
+            }
+    
+            
+
+        }
+        
+
+        
+
+
+
+    </script>
+
+</body>
+</html>
